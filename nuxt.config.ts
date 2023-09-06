@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     redirectOptions: {
       login: '/',
       // callback: '/confirm',
-      exclude: ['/acesso/registro']
+      exclude: ['/acesso/registro','/dashboard/painel']
     }
   }
 

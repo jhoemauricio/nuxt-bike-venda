@@ -40,7 +40,7 @@ const supabase = useSupabaseClient();
 
 // }
 
-let display_name = '';
+
 let nome = '';
 let email = '';
 let password = '';
@@ -72,10 +72,6 @@ const cadastrar = async () => {
     console.log('SUCCESS');
     // cadastrarDados()
 
-
-
-
-
 }
 
 
@@ -89,7 +85,6 @@ const cadastrar = async () => {
         Cadastro
         <form @submit.prevent="cadastrar">
             <input v-model="nome" type="text" placeholder="nome">
-            <input v-model="display_name" type="text" placeholder="display_name">
             <input v-model="email" type="text" placeholder="email">
             <input v-model="password" type="password" placeholder="password">
 

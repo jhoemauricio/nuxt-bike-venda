@@ -19,7 +19,7 @@ if(error){
 
 }
 
-
+return navigateTo('/dashboard/painel');
 
 }
 
