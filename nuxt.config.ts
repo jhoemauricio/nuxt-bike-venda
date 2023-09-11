@@ -11,6 +11,7 @@ export default defineNuxtConfig({
       // callback: '/confirm',
       exclude: ['/acesso/registro','/dashboard/painel']
     }
-  }
+  },
 
+ 
 })

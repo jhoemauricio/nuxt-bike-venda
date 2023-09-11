@@ -16,6 +16,6 @@
   },
   "dependencies": {
     "flowbite": "^1.8.1",
-    "vee-validate": "^4.11.4"
+    "vee-validate": "^4.11.6"
   }
 }
