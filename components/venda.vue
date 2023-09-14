@@ -16,9 +16,9 @@ const dadosBike = reactive({
 })
 
 
-
-let bikes = ref('');
 //listar
+let bikes = ref('');
+
 const listar = async () => {
 
     //lista todas as bikes
