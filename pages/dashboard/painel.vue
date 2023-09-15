@@ -1,8 +1,22 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 definePageMeta({
     middleware: 'auth',
     layout: 'login'
 })
+
+const cadastroProduto = resolveComponent('cadastroProduto');
+const produtos = resolveComponent('produtos');
+const valorComponent = ref(true);
+// let cad = ref(false);
+// let listar = ref(false);
+// const listarProdutos = async() =>{
+//     return listar.value = true;
+
+// }
+// const cadas = async ()=>{
+//     return cad.value = true; 
+// }
 
 
 
@@ -66,7 +80,10 @@ const logout = async () => {
             <div id="mega-menu" class="bg-red-200 p-6 justify-between items-center hidden w-full md:flex md:w-auto md:order-2">
               
                 <div class="flex justify-center p-2">
-                    <p class="font-bold">Cadastrar Bike</p>
+                    <button class="font-bold" @click="valorComponent = false" >Cadastrar Bike</button>
+                </div>
+                <div class="flex justify-center p-2">
+                    <button class="font-bold" @click="valorComponent = true">Listar Bikes</button>
                 </div>
 
                 <div class="flex justify-center p-2">
@@ -85,9 +102,9 @@ const logout = async () => {
 
 
     <div class="p-4 flex justify-center">
-        <produtos />
-     
-        
+        <!-- <produtos v-if="listar == true"/>
+        <venda v-if="cad == true"/> -->
+        <component :is="valorComponent ? produtos : cadastroProduto"/>
     </div>
     
 </template>
