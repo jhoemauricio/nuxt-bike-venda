@@ -2,6 +2,10 @@
 
 import { ref } from 'vue';
 
+
+const produtoDetails = async ()=>{
+    return navigateTo('/dashboard/produtoDetails');
+}
 const supabase = useSupabaseClient()
 
 
@@ -33,7 +37,7 @@ listar();
 <template>
     <div>
         
-        <div v-for="b in bikes" class="mt-8 grid grid-cols-3 gap-4 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
+        <div @click="produtoDetails" v-for="b in bikes" class="mt-8 grid grid-cols-3 gap-4 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
 
                 <div>
                     <img class="rounded-full w-16 h-16 object-cover" src="../public/imagemTeste.jpg">
