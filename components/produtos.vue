@@ -3,6 +3,7 @@
 import { ref } from 'vue';
 
 
+
 const produtoDetails = async ()=>{
     return navigateTo('/dashboard/produtoDetails');
 }

@@ -56,7 +56,7 @@ const logout = async () => {
 
 
 
-
+<div>
 
 
     <nav class="bg-white border-gray-200 dark:bg-gray-900 p-4">
@@ -90,10 +90,6 @@ const logout = async () => {
                     <button class="font-bold" @click="logout">Logout</button>
                 </div>
 
-
-
-        
-
             </div>
                
             
@@ -106,7 +102,9 @@ const logout = async () => {
         <venda v-if="cad == true"/> -->
         <component :is="valorComponent ? produtos : cadastroProduto"/>
     </div>
-    
+</div>
+
+
 </template>
 
 <style lang="scss" scoped></style>
