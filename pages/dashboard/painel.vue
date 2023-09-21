@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { NuxtComponentIndicator } from 'nuxt/dist/app/composables/component';
 import { ref } from 'vue';
 definePageMeta({
     middleware: 'auth',
     layout: 'login'
 })
+
 
 const cadastroProduto = resolveComponent('cadastroProduto');
 const produtos = resolveComponent('produtos');
@@ -100,7 +102,8 @@ const logout = async () => {
     <div class="p-4 flex justify-center">
         <!-- <produtos v-if="listar == true"/>
         <venda v-if="cad == true"/> -->
-        <component :is="valorComponent ? produtos : cadastroProduto"/>
+        <component :is="valorComponent? produtos : cadastroProduto"/>
+      
     </div>
 </div>
 
