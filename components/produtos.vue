@@ -7,6 +7,21 @@ const venda = resolveComponent('venda');
 
 const cardProduto = ref(false);
 
+const emit = defineEmits(['dadosBicicleta']);
+
+function dadosEnviar(nome){
+// const dadosEnviar = async (id, nome, modalidade, preco) =>{
+    cardProduto.value = true;
+    // console.log(id +' + '+nome +' + '+modalidade+' + '+preco);
+    emit('dadosBicicleta',nome);
+// }
+}
+
+
+
+
+
+
 
 
 // const mostrarVenda = ref(false);
@@ -70,17 +85,17 @@ listar();
 
                 
                 <div class="bg-red-200">
-                        <button class="mt-4 text-white w-full  p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" @click="a">Vender</button> 
+                        <button class="mt-4 text-white w-full  p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" >Vender</button> 
                   
                 </div>
 
                 <div class="bg-sky-700">
-                        <button class="mt-4 text-white w-full p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" @click="cardProduto = true">Editar</button> 
+                        <button class="mt-4 text-white w-full p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" @click="dadosEnviar(b.nome)">Editar</button> 
                   
                 </div>
 
                 <div class="bg-sky-700">
-                        <button class="mt-4 text-white w-full  p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" @click="a">Excluir</button> 
+                        <button class="mt-4 text-white w-full  p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" >Excluir</button> 
                   
                 </div>
                 

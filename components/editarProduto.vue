@@ -18,6 +18,12 @@ const dadosBike = reactive({
 })
 
 
+function exibirDadosBike(data){
+ 
+        console.log(data);
+}
+
+
 const limparCampos = async ()=>{
          dadosBike.nome = '';
          dadosBike.modalidade = '';
@@ -56,6 +62,7 @@ console.log('ATUALIZADO ou Salvo com SUCESSO!');
                                         
                         <div class="p-2 col-span-2 flex justify-center items-center">
                                 <img class="rounded-full w-24 h-24 object-cover" src="">
+                                
                         </div>
                         <div class="col-span-2">
                               
@@ -108,7 +115,7 @@ console.log('ATUALIZADO ou Salvo com SUCESSO!');
                 
               
         </div>
-        <Produtos v-if="cardEditarProduto == false" />
+        <Produtos @dadosBicicleta="exibirDadosBike" v-if="cardEditarProduto == false" />
     
 </template>
 <style scoped>
