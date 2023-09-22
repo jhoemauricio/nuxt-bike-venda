@@ -17,10 +17,11 @@ const dadosBike = reactive({
 
 })
 
-
+let da = ref('');
 function exibirDadosBike(data){
- 
+        da.value = data;
         console.log(data);
+        alert(da);
 }
 
 
@@ -72,7 +73,7 @@ console.log('ATUALIZADO ou Salvo com SUCESSO!');
                                         <div>
 
                                                 <label class="mb-2 text-sm font-bold">Nome</label>
-
+                                              
                                                 <input  v-model="dadosBike.nome" class="w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                 
 

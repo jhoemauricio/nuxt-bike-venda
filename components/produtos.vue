@@ -63,7 +63,7 @@ listar();
 <template>
     <div>
         
-        <div v-if="cardProduto == false" v-for="b in bikes" class="mt-8 grid grid-cols-3 gap-4 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
+        <div v-for="b in bikes" class="mt-8 grid grid-cols-3 gap-4 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
 
                 <div>
                     <img class="rounded-full w-16 h-16 object-cover" src="../public/imagemTeste.jpg">
@@ -90,7 +90,7 @@ listar();
                 </div>
 
                 <div class="bg-sky-700">
-                        <button class="mt-4 text-white w-full p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" @click="dadosEnviar(b.nome)">Editar</button> 
+                        <button class="mt-4 text-white w-full p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" @click="dadosEnviar(b.nome)"><NuxtLink to="/dashboard/editarBike">Editar</NuxtLink></button> 
                   
                 </div>
 
@@ -110,7 +110,7 @@ listar();
         <!-- <component :is="valor ? editarProduto : cardProduto = true "/>
          -->
         
-         <EditarProduto v-if="cardProduto"/>
+         <!-- <EditarProduto v-if="cardProduto"/> -->
 
     </div>
 </template>
