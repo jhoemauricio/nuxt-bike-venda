@@ -90,7 +90,7 @@ listar();
                 </div>
 
                 <div class="bg-sky-700">
-                        <button class="mt-4 text-white w-full p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" @click="dadosEnviar(b.nome)"><NuxtLink to="/dashboard/editarBike">Editar</NuxtLink></button> 
+                        <button class="mt-4 text-white w-full p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" @click="dadosEnviar(b.nome)"><NuxtLink :to="`/dashboard/${b.id}`">Editar</NuxtLink></button> 
                   
                 </div>
 
