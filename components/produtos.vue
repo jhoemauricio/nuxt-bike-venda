@@ -2,43 +2,62 @@
 
 import { ref } from 'vue';
 
-
-const venda = resolveComponent('venda');
-
-const cardProduto = ref(false);
-
-const emit = defineEmits(['dadosBicicleta']);
-
-function dadosEnviar(nome){
-// const dadosEnviar = async (id, nome, modalidade, preco) =>{
-    cardProduto.value = true;
-    // console.log(id +' + '+nome +' + '+modalidade+' + '+preco);
-    emit('dadosBicicleta',nome);
-// }
-}
-
-
-
-
-
-
-
-
-// const mostrarVenda = ref(false);
-
-
-// const produtoDetails = async ()=>{
-//     mostrarVenda.value = true;
-//     // return navigateTo('/dashboard/produtoDetails');
-// }
 const supabase = useSupabaseClient()
 
+
+
+//componente Venda
+// const venda = resolveComponent('venda');
+
+// const cardProduto = ref(false);
+
+// const emit = defineEmits(['dadosBicicleta']);
+
+// function dadosEnviar(nome){
+// // const dadosEnviar = async (id, nome, modalidade, preco) =>{
+//     cardProduto.value = true;
+//     // console.log(id +' + '+nome +' + '+modalidade+' + '+preco);
+//     emit('dadosBicicleta',nome);
+// // }
+// }
+
+
+//Vender, atualiza a propriedade de disponivel através do idBike
+const vender = async (idBike) => {
+
+    //selciona pelo id e atualiza a propriedade
+    const { error } = await supabase
+        .from('bike')
+        //atualiza a propriedade disponivel para false
+        .update({ disponivel: false })
+        .eq('id', idBike)
+
+        if(error){
+            console.log('Algo deu errado ao vender '+error);
+            
+        }
+        //chama o método listar
+        listar();
+}
+
+//deletar bike
+const deletar = async(idBike) =>{
+    const { error } = await supabase
+  .from('bike')
+  .delete()
+  .eq('id',idBike )
+
+  if(error){
+    console.log('Erro ao excluir '+error);
+  }
+
+  listar();
+}
 
 
 
 //listar
 let bikes = ref('');
-
 
 const listar = async () => {
 
@@ -46,16 +65,20 @@ const listar = async () => {
     const { data, error } = await supabase
         .from('bike')
         .select()
+       //onde propriedade disponivel for true 
+        .eq('disponivel',true)
 
     if (error) {
         console.log('Algo deu errado ao listar ' + error);
     }
 
+    // variavel bikes recebe o valor de data
     bikes.value = data;
 
      
 }
 
+//método executado ao carregar a página
 listar();
 
 </script>
@@ -85,7 +108,7 @@ listar();
 
                 
                 <div class="bg-red-200">
-                        <button class="mt-4 text-white w-full  p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" >Vender</button> 
+                        <button class="mt-4 text-white w-full  p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" @click="vender(b.id)">Vender</button> 
                   
                 </div>
 
@@ -95,7 +118,7 @@ listar();
                 </div>
 
                 <div class="bg-sky-700">
-                        <button class="mt-4 text-white w-full  p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" >Excluir</button> 
+                        <button class="mt-4 text-white w-full  p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" @click="deletar(b.id)">Excluir</button> 
                   
                 </div>
                 

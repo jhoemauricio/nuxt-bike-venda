@@ -10,7 +10,6 @@ const supabase = useSupabaseClient()
 //Objeto Reativo
 const dadosBike = reactive({
 
-//     id: ref(''),
     nome: ref(''),
     modalidade: ref(''),
     preco: ref(''),
@@ -18,7 +17,7 @@ const dadosBike = reactive({
 
 })
 
-
+//Limpa os campos
 const limparCampos = async ()=>{
          dadosBike.nome = '';
          dadosBike.modalidade = '';
@@ -30,7 +29,7 @@ const limparCampos = async ()=>{
 //Salva ou Atualiza
 const salvar = async () => {
 
-//aqui verifica se ja existe uma bike cadastrada se tiver autualiza senao cria um novo
+//Insere um novo registro
 const { error } = await supabase
     .from('bike')
     .insert(dadosBike)

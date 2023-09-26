@@ -40,27 +40,39 @@ console.log('Esse é o id: '+idBike);
 
 selecionarBike(idBike);
 
+//atualiza os dados
+const atualizar = async () => {
 
+//aqui verifica se ja existe uma bike cadastrada se tiver autualiza
+const { error } = await supabase
+        .from('bike')
+        .update(dadosBike)
+        .eq('id', idBike)
+   
+
+
+if (error) {
+    console.log('NAO ATUALIZOU' + error)
+}
+
+console.log('ATUALIZADO com SUCESSO!');
+
+
+}
+
+
+
+
+
+
+//valores reativos
 const dadosBike = reactive({
     id: ref(''),
     nome: ref(''),
     preco: ref(''),
     modalidade:ref('')
 })
-// function mostrarDadosBike(data){
 
-//     Object.keys(data).forEach(function() {
-
-//         //atribui ao objeto dadosBike os valores
-       
-//         // dadosEmit.nome = data[key].nome;
-//             dadosEmit.nome = data;
-//             console.log(data)
-     
-//         });
-       
-//     // console.log('EDITAR BIKE FUNCIONOU '+dadosEmit)
-// }
 
 </script>
 
@@ -108,7 +120,7 @@ const dadosBike = reactive({
                               <div class="grid grid-cols-2 gap-6 flex justify-center items-center mt-8">
                                       <div >
 
-                                              <button class="text-white w-full  p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" >Salvar</button>         
+                                              <button class="text-white w-full  p-2  bg-pink-500 focus:ring-4 focus:outline-none focus:ring-pink-300 rounded-full text-center dark:bg-pink-600" @click="atualizar">Salvar</button>         
 
                                       </div>
                                       <div >
